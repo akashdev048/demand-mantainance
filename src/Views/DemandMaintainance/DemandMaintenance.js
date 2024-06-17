@@ -16,7 +16,7 @@ function DemandMaintenance() {
                     <div className="row">
                         <div className="col-12 col-md-6 col-lg-7">
                             <div className="">
-                                <div className=""><h4 className="title-chart-wht mb-0">  Therapeutic Area > Influenza > Flu Drugs</h4></div>
+                                <div className=""><h4 className="title-chart-wht mb-0">  Therapeutic Area &gt; Influenza &gt; Flu Drugs</h4></div>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ function DemandMaintenance() {
                                         Analgesic
                                     </div>
                                     <div className="card-body">
-                                        <DonutGraph />
+                                        <DonutGraph series={89.66}/>
                                     </div>
                                 </div>
                                 <div className="card" style={{ width: 'fit-content', borderColor: '#799BBD' }}>
@@ -70,7 +70,7 @@ function DemandMaintenance() {
                                         Anti-flu OTC
                                     </div>
                                     <div className="card-body">
-                                        <DonutGraph />
+                                        <DonutGraph series={88.90}/>
                                     </div>
                                 </div>
                                 <div className="card" style={{ width: 'fit-content', borderColor: '#C4CACD' }}>
@@ -78,7 +78,7 @@ function DemandMaintenance() {
                                         Anti-flu RX
                                     </div>
                                     <div className="card-body">
-                                        <DonutGraph />
+                                        <DonutGraph series={89.87}/>
 
                                     </div>
                                 </div>
@@ -191,22 +191,22 @@ function DemandMaintenance() {
                                     <span className="chartlist-label-1">
                                         <span className="boxfill-charcolor-1 color-type-chart8"></span>
 
-                                        <label className="lbl-chart-mt-1 sub-text-1"> > 60 </label>
+                                        <label className="lbl-chart-mt-1 sub-text-1"> &gt; 90 </label>
                                     </span>
                                     <span className="chartlist-label-1">
                                         <span className="boxfill-charcolor-1 color-type-chart9"></span>
 
-                                        <label className="lbl-chart-mt-1 sub-text-1">> 60 > 90</label>
+                                        <label className="lbl-chart-mt-1 sub-text-1">&gt; 60 &gt; 90</label>
                                     </span>
                                     <span className="chartlist-label-1">
                                         <span className="boxfill-charcolor-1 color-type-chart10"></span>
 
-                                        <label className="lbl-chart-mt-1 sub-text-1">> 90</label>
+                                        <label className="lbl-chart-mt-1 sub-text-1"> &lt; 60</label>
                                     </span>
                                 </div>
 
                               </div>
-                            <LineGraph />
+                            <LineGraph  data= {[9,10,12,11,9.5,10]} />
                         </div>
 
                     </div>
@@ -251,22 +251,22 @@ function DemandMaintenance() {
                                     <span className="chartlist-label-1">
                                         <span className="boxfill-charcolor-1 color-type-chart8"></span>
 
-                                        <label className="lbl-chart-mt-1 sub-text-1"> > 11 </label>
+                                        <label className="lbl-chart-mt-1 sub-text-1"> &lt; 9 </label>
                                     </span>
                                     <span className="chartlist-label-1">
                                         <span className="boxfill-charcolor-1 color-type-chart9"></span>
 
-                                        <label className="lbl-chart-mt-1 sub-text-1">> 9 > 11</label>
+                                        <label className="lbl-chart-mt-1 sub-text-1">&gt; 9 &gt; 11</label>
                                     </span>
                                     <span className="chartlist-label-1">
                                         <span className="boxfill-charcolor-1 color-type-chart10"></span>
 
-                                        <label className="lbl-chart-mt-1 sub-text-1">> 9</label>
+                                        <label className="lbl-chart-mt-1 sub-text-1">&gt; 11</label>
                                     </span>
                                 </div>
 
                               </div>
-                            <LineGraph />
+                            <LineGraph data= {[9,10,12,11,9.5,10]} />
                         </div>
 
                     </div>

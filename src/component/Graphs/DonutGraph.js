@@ -2,9 +2,11 @@ import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import './index.scss';
 
-const DonutGraph = () => {
+const DonutGraph = (props) => {
+  const seriesValue = props.series; 
+
   const chartData = {
-    series: [80],
+    series: [seriesValue],
     labels: ['Anti-flu'],
   };
 

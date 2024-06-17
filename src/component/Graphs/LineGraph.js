@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const LineGraph = () => {
+const LineGraph = ({ data }) => {
+
   const options = {
     chart: {
       id: 'basic-line',
@@ -20,6 +21,8 @@ const LineGraph = () => {
       ],
     },
     yaxis: {
+      // min: 9,
+      // max: 12,
       labels: {
         show: true, 
       },
@@ -42,7 +45,7 @@ const LineGraph = () => {
   const series = [
     {
       name: 'pv',
-      data: [1,10,20,8,15,9],
+      data: data,
       strokeWidth: 1, 
 
     },
