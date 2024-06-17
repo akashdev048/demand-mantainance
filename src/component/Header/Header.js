@@ -15,18 +15,61 @@ const Header = () => {
     const [showChat, setShowChat] = useState(false);
     const [showFullChat, setShowFullChat] = useState(false);
 
-    const [preChat, setsetPreChat] = useState(
-        [
-            {
-                query: 'Hi',
-                response: 'Hello , how may I help you ?',
-            },
-            {
-                query: 'Hi',
-                response: 'Hello , how may I help you ?',
-            }
+    const [chatMessages, setChatMessages] = useState([]);
+    const [currentMessage, setCurrentMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [preChat, setPreChat] = useState([
+        {
+            query: 'Hi',
+            response: 'Hello, how may I help you?',
+        },
+        {
+            query: 'Hello',
+            response: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. ',
+        },
+    ]);
 
-        ]
+
+    const handleSendMessage = () => {
+        if (currentMessage.trim() !== '') {
+            const newMessage = {
+                type: 'query',
+                text: currentMessage
+            };
+            setChatMessages([...chatMessages, newMessage]);
+            setCurrentMessage('');
+            setIsLoading(true);
+
+            const foundResponse = preChat.find(item => item.query.toLowerCase() === newMessage.text.toLowerCase());
+
+            if (foundResponse) {
+                const responseMessage = {
+                    type: 'response',
+                    text: foundResponse.response
+                };
+                setTimeout(() => {
+                    setChatMessages(prevMessages => [...prevMessages, responseMessage]);
+                    setIsLoading(false);
+                }, 1000);
+            } else {
+                const responseMessage = {
+                    type: 'response',
+                    text: 'Sorry, I do not understand that question.'
+                };
+                setTimeout(() => {
+                    setChatMessages(prevMessages => [...prevMessages, responseMessage]);
+                    setIsLoading(false);
+                }, 1000);
+            }
+        }
+    };
+
+    const BubbleLoader = () => (
+        <div className="bubble-loader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     );
 
     return (
@@ -70,9 +113,9 @@ const Header = () => {
                     </Container>
                 </Navbar>
             </div>
-            {/*---Chat Box area */}
+             {/*---Chat Box area */}
 
-            {
+             {
                 !showChat ?
                     <div className='chatfooter-icon'>
                         <button onClick={() => setShowChat(true)} type='button' className='btn chaticon-mt p-0'><img src={chatIcon} alt='Chat Icon' /></button>
@@ -80,7 +123,7 @@ const Header = () => {
 
                     : null
             }
-            <div className={`chat-message-body ${!showChat ? 'd-none' : ''}  ${showFullChat ? 'expand-chat-body' : ''}`} style={{zIndex: 999}}>
+            <div className={`chat-message-body ${!showChat ? 'd-none' : ''}  ${showFullChat? 'expand-chat-body' : ''}`} style={{zIndex: 999}}>
                 <div className="chat-header">
                     <div className="chat-leftside-wap">
                         {/* <div className="avtar-img"><span className="avt-img-pic"><img src={chatAvtarImg} /></span></div> */}
@@ -93,7 +136,7 @@ const Header = () => {
                                 className="btn btn-expand me-3"
 
                             >
-                                <span onClick={() => setShowFullChat(false)} aria-hidden="true"><i class="fas fa-expand-alt"></i></span>
+                                <span onClick={() => setShowFullChat(false) } aria-hidden="true"><i class="fas fa-expand-alt"></i></span>
 
                             </button> :
                                 <button
@@ -102,7 +145,7 @@ const Header = () => {
                                     className="me-3 btn-chatweb"
 
                                 >
-                                    <span onClick={() => setShowFullChat(true)} aria-hidden="true" className="text-white"><i class="fal fa-minus"></i></span>
+                                    <span onClick={() => setShowFullChat(true) } aria-hidden="true" className="text-white"><i class="fal fa-minus"></i></span>
                                 </button>
                         }
 
@@ -121,22 +164,41 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="chat-content-wrapper">
-                    <div class="chat-wigit--list">
-                        <div className="chatmsg--web chating-msg--in">
-                            <div className="chatmsg--txtarea"><span className="yt-txtcontent">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. <div className='chat-time-txt'>4:11 pm</div></span></div>
-                            <div className='msg-imguser-chat'><img src={robotImg} alt='' /></div>
-                        </div>
-                        <div className="chatmsg--web chating-msg--out">
-                            <div className='msg-imguser-chat'><img src={chatAvtarImg} alt='' /></div>
-                            <div className="chatmsg--txtarea"><span className="yt-txtcontent">Alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum <div className='chat-time-txt'>4:11 pm</div></span></div>
-                        </div>
+                    <div className="chat-wigit--list">
+                        {chatMessages.map((msg, index) => (
+                            <div key={index} className={`chatmsg--web ${msg.type === 'query' ? 'chating-msg--out' : 'chating-msg--in'}`}>
+                                <div className="chatmsg--txtarea d-flex align-items-center">
+                                    {msg.type === 'response' && <img src={robotImg} alt="Chatbot Icon"  style={{width:'20px'}}className="chat-icon me-2" />}
+                                    <span className="yt-txtcontent">{msg.text}</span>
+                                    {msg.type === 'query' && <img src={chatAvtarImg} alt="Person Icon" style={{width:'20px'}} className="chat-icon ms-2" />}
+                                </div>
+                            </div>
+                        ))}
+                        {isLoading && (
+                            <div className="chatmsg--web chating-msg--in">
+                                <div className="chatmsg--txtarea d-flex align-items-center">
+                                    <img src={robotImg} alt="Chatbot Icon" className="chat-icon me-2" style={{width:'20px'}} />
+                                    <span className="yt-txtcontent">
+                                        <BubbleLoader />
+                                    </span>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className="chat-footer-wigit">
-                    <div className="input-group chat-bottom-areas">
-                        <textarea className="form-control chat-control pe-2" placeholder="Type the message..."></textarea>
-                        {/* <input type="text" className="form-control chat-control pe-2" placeholder="Type the message..." /> 
-                        <button type="button" className="btn btn-send-chat"><i class="fab fa-telegram-plane"></i></button>*/}
+                    <div className="input-group chat-bottom-areas bg-white">
+                        <input
+                            type="text"
+                            className="form-control chat-control pe-2"
+                            placeholder="Type the message..."
+                            value={currentMessage}
+                            onChange={(e) => setCurrentMessage(e.target.value)}
+                            onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
+                        />
+                        <button type="button" className="btn btn-send-chat" onClick={handleSendMessage}>
+                            <i className="fab fa-telegram-plane"></i>
+                        </button>
                     </div>
                 </div>
             </div>
