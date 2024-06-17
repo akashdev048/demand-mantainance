@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.845676a5.css",
+    "main.js": "/static/js/main.bf12ba55.js",
+    "static/js/787.294ec84d.chunk.js": "/static/js/787.294ec84d.chunk.js",
+    "static/media/chatboat.png": "/static/media/chatboat.cf54d667887bffffbf12.png",
+    "static/media/chat-avtar-img.png": "/static/media/chat-avtar-img.914c1c1e735aaecabb8f.png",
+    "static/media/group-icon.svg": "/static/media/group-icon.be69ecbb20edee82a42dab3cf86cf4c9.svg",
+    "static/media/upDownArrow.svg": "/static/media/upDownArrow.ea0d29aef56f0b6b4c3567f59cc755cd.svg",
+    "static/media/handle-icon.svg": "/static/media/handle-icon.d83999c84f5607941165b1dc3b6bffb3.svg",
+    "static/media/notification-icon.svg": "/static/media/notification-icon.4d9e4a16aa2e154992c659cc55b657f6.svg",
+    "index.html": "/index.html",
+    "static/media/cancel.svg": "/static/media/cancel.47c760d910b7921958c1e75014322623.svg",
+    "static/media/drops-icon.svg": "/static/media/drops-icon.0cb0bb17109e21188aa09720425e5169.svg",
+    "static/media/chat-msg-icon.svg": "/static/media/chat-msg-icon.56803037d46b5f11d3faf9d7f7832c51.svg",
+    "static/media/refresh.svg": "/static/media/refresh.8d665a18da82c357ad53ca3706a0109a.svg",
+    "static/media/dropdown.svg": "/static/media/dropdown.0e63a7d78d0eb47734e47c63043dfa3b.svg",
+    "static/media/chart-icon.svg": "/static/media/chart-icon.78eb853e8d72e4db5eb9000c0f93c22f.svg",
+    "main.845676a5.css.map": "/static/css/main.845676a5.css.map",
+    "main.bf12ba55.js.map": "/static/js/main.bf12ba55.js.map",
+    "787.294ec84d.chunk.js.map": "/static/js/787.294ec84d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.845676a5.css",
+    "static/js/main.bf12ba55.js"
+  ]
+}

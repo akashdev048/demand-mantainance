@@ -1,0 +1,16 @@
+version: '3.3'
+services: 
+  frontend-dev-runml:
+    image: gcr.io/runml-370811/runml_frontend:dev
+    container_name: fronend-dev-runml #sudo docker-compose -f docker-compose.dev.yml up  --scale dcapflask=3 -d
+    restart: always
+    ports:
+      - "3000:80"
+    volumes:
+      - .:/code:rw
+    networks:
+      - dfast-dev
+
+networks:
+  dfast-dev:
+    external: true

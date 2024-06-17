@@ -1,0 +1,98 @@
+.bubble-chart-div {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+// From react-bubble-chart (instead of importing):
+/* Center the contents of the bubble chart */
+.bubble-chart-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  user-select: none;
+  justify-content: center;
+
+  /* Center text in the circle, and hide any overflow */
+  .bubble-chart-text .bubble-label {
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 50%;
+    will-change: left, top, height, width;
+
+    /* Show the overflow when hovering over a label */
+    &:hover {
+      overflow: visible;
+      font-weight: bold;
+    }
+
+    /* Optional, but recommended - reduce the size of text on medium bubbles */
+    &.medium {
+      font-size: 0.8em;
+    }
+
+    /* Optional, but recommended - hide the text on small bubbles */
+    &.small {
+      font-size: 0;
+    }
+
+    /* Make sure to unhide the text when hovering */
+    &.small:hover {
+      font-size: 0.8em;
+    }
+  }
+}
+
+// End of css from react-bubble-chart
+
+#bubble-charts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  color: #fff;
+  margin-top: 70px;
+  padding: 50px 0;
+
+  .buble1 {
+    height: 120px;
+    border-radius: 50%;
+    width: 120px;
+    background: #f6ab66;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buble2 {
+    height: 180px;
+    border-radius: 50%;
+    width: 180px;
+    background: #f44336;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .buble3 {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 120px;
+    background: #7f2d62;
+    color: #fff;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    left: -12px;
+  }
+}
